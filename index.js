@@ -18,4 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
         animalInput.value = "";
 
     })
+
+    let randomNumBttn = document.querySelector("#randomNumBttn");
+
+    randomNumBttn.addEventListener("click", async (event) =>{
+        event.preventDefault();
+
+        
+    })
 })

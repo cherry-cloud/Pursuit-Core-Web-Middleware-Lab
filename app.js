@@ -15,20 +15,39 @@ let animalArray = ["dog", "frog", "bird", "snake", "monkey", "giraffe", "zebra",
 const isAnimal = (req, res, next) => {
     if (animalArray.includes(req.params.animals)) {
         console.log("Middleware isAnimal fired");
-        // res.json({status: "success", message: true})
+        
         next();
     } else {
         console.log("Middleware isAnimal fired and false");
         res.json({status: "sucess", message: false})
-         // next();//a bunch of errors thought I need next for the middleware to work??? so why errors?
+         
        
     }
-    // next();
+    
 }
 
 app.get("/animals/:animals", isAnimal, (req, res) => {
     console.log(req.params);
     res.json({status: "success", message: true})
+})
+
+
+const generateSpread = (req, res, next) => {
+   let nums = [];
+
+   for (let i = Number(req.params.floor); i <= Number(req.params.ceil); i++) {
+       nums.push(i);
+   }
+   
+   let randNum = Math.floor
+
+
+
+}
+
+app.get("/random/:floor/:ceil", generateSpread, (req, res) => {
+   
+    res.json({status: "success", range: [req.query.floor, req.query.ceil], randPick: res.randNum})
 })
 
 app.listen(port, () => {
