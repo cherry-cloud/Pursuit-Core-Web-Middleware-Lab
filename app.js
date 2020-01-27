@@ -34,22 +34,22 @@ app.get("/animals/:animals", isAnimal, (req, res) => {
 
 const generateSpread = (req, res, next) => {
    let nums = [];
-
    for (let i = Number(req.params.floor); i <= Number(req.params.ceil); i++) {
        nums.push(i);
    }
-   
-   let randNum = Math.floor
-
+//    let randNum = Math.floor(Math.random(req.params.floor) * (req.params.ceil) )
 
 
 }
 
 app.get("/random/:floor/:ceil", generateSpread, (req, res) => {
+   console.log(req.params.floor, req.params.ceil);
    
-    res.json({status: "success", range: [req.query.floor, req.query.ceil], randPick: res.randNum})
+   res.json({status: "success", range: [req.query.floor, req.query.ceil], randPick: res.randNum})
+
 })
 
 app.listen(port, () => {
     console.log("listening on port: " + port)
 })
+
